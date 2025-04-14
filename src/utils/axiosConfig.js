@@ -3,13 +3,10 @@ import { store } from "../store/store";
 
 const axiosConfig = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_API_URL,
-  // baseURL: "http://ws-srv-php.in.webmyne.com:5005/api/v1",
 });
 
 axiosConfig.defaults.headers.common["Authkey"] =
   import.meta.env.VITE_REACT_APP_AUTH_KEY;
-// axiosConfig.defaults.headers.common["Authkey"] =
-// "2yifg43454jfglfgjhljgf34545345fldjgljfg55654KLGH4534534";
 
 axiosConfig.interceptors.request.use(
   (request) => {
