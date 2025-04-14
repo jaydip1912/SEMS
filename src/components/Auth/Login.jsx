@@ -59,7 +59,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/dashboard");
+      navigate("/enquiry");
     }
   }, [token, navigate]);
 

@@ -47,14 +47,16 @@ const SalesPersonForm = ({ isEdit }) => {
     getRoles();
   }, []);
 
+  console.log(userData);
+
   useEffect(() => {
     if (isEdit && userData) {
-      setValue("first_Name", userData.first_name);
-      setValue("last_Name", userData.last_name);
+      setValue("first_name", userData.first_name);
+      setValue("last_name", userData.last_name);
       setValue("phone_number", userData.phone_number);
       setValue("email", userData.email);
       // setValue("password", userData.password);
-      setValue(userData.status === "active");
+      setStatus(userData.status === "active");
     }
   }, [isEdit, userData, setValue]);
 
@@ -145,9 +147,9 @@ const SalesPersonForm = ({ isEdit }) => {
                   <input
                     type="text"
                     id="customerName"
-                    {...register("first_Name", { required: true })}
+                    {...register("first_name", { required: true })}
                     className={`border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      errors.first_Name ? "border-red-500" : "border-gray-300"
+                      errors.first_name ? "border-red-500" : "border-gray-300"
                     }`}
                   />
                 </div>
@@ -161,9 +163,9 @@ const SalesPersonForm = ({ isEdit }) => {
                   <input
                     type="text"
                     id="lastName"
-                    {...register("last_Name", { required: true })}
+                    {...register("last_name", { required: true })}
                     className={`border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      errors.last_Name ? "border-red-500" : "border-gray-300"
+                      errors.last_name ? "border-red-500" : "border-gray-300"
                     }`}
                   />
                 </div>

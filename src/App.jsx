@@ -30,7 +30,8 @@ function App() {
 
           {/* After Login */}
           <Route path="/" element={<Layout />}>
-            <Route path="/dashboard" element={<Home />} />
+            {/* <Route path="/dashboard" element={<Home />} /> */}
+            <Route path="/" element={<Enquiry />} />
             <Route path="/enquiry" element={<Enquiry />} />
             <Route path="/enquiry/createEnquiry" element={<EnquiryForm />} />
             <Route

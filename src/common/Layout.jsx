@@ -21,6 +21,7 @@ const Layout = () => {
       //   navigate("/");
       // }
     } else {
+      console.warn("Token or pathname not valid", token, location.pathname);
       navigate("/login");
     }
   }, [navigate, token, permissions, location.pathname]);

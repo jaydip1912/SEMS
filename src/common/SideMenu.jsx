@@ -50,11 +50,11 @@ const SideMenu = () => {
             Sales Enquiry
           </div>
           <ul className={`md:flex gap-5  flex-col md:flex-row`}>
-            <li>
+            {/* <li>
               <Link to="/dashboard" className="text-white hover:text-gray-300">
                 Dashboard
               </Link>
-            </li>
+            </li> */}
             {hasPermission("enquiry") && (
               <li>
                 <Link to="/enquiry" className="text-white hover:text-gray-300">
@@ -92,13 +92,16 @@ const SideMenu = () => {
 
             {hasMasterPermission && (
               <li ref={masterRef}>
-                <button className="relative" onClick={toggleMaster}>
-                  <Link
+                <button
+                  className="relative text-white hover:text-gray-300"
+                  onClick={toggleMaster}
+                >
+                  {/* <Link
                     to="/salesperson"
                     className="text-white hover:text-gray-300"
-                  >
-                    Master
-                  </Link>
+                  >  */}
+                  Master
+                  {/* </Link> */}
                 </button>
                 {masterOpen && (
                   <div
@@ -142,12 +145,12 @@ const SideMenu = () => {
                     className="w-full h-full object-cover"
                   />
                   {profileOpen && (
-                    <div className="absolute mt-2 w-40 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div className="absolute m-2 w-40 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
                       <ul className="py-2">
                         <li>
                           <Link
                             to={"/profile"}
-                            className="text-start px-4 w-full py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
+                            className="text-start px-4  w-full py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
                             onClick={() => setProfileOpen(false)}
                           >
                             Profile

@@ -11,7 +11,6 @@ import {
 import { addRec } from "../../common/common";
 
 const CustomerForm = ({ isEdit }) => {
-  
   const {
     register,
     handleSubmit,
@@ -21,12 +20,12 @@ const CustomerForm = ({ isEdit }) => {
     setError,
   } = useForm();
   const [status, setStatus] = useState(false);
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const userData = location.state?.userData;
-  
+
   useEffect(() => {
     if (isEdit && userData) {
       console.log("isEdit:", isEdit, "userData", userData);
