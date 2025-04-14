@@ -34,6 +34,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+
 import {
   faArrowRight,
   faPrint,
@@ -55,6 +56,7 @@ const EnquiryForm = ({ isEdit }) => {
 
   const validationSchema = [
     step1ValidationSchema,
+    step2ValidationSchema,
     step2ValidationSchema,
     step2ValidationSchema,
     step2ValidationSchema,
@@ -189,6 +191,8 @@ const EnquiryForm = ({ isEdit }) => {
     resolver: yupResolver(currentValidationSchema),
     mode: "onChange",
   });
+
+  console.log("Current Schema at step", activeStep, currentValidationSchema);
 
   const refs = {
     product_id: useRef(null),
@@ -748,7 +752,7 @@ const EnquiryForm = ({ isEdit }) => {
           <button
             disabled={activeStep === 0}
             type="button"
-            className="m-1 bg-blue-700 text-white rounded-md px-4 py-2"
+            className="m-1 bg-blue-700 text-white rounded-md px-4 py-2 hover:bg-green-500"
             onClick={handleBack}
           >
             <FontAwesomeIcon
@@ -760,7 +764,7 @@ const EnquiryForm = ({ isEdit }) => {
           {
             <button
               type="button"
-              className="m-1 bg-blue-700 text-white rounded-md px-4 py-2"
+              className="m-1 bg-blue-700 text-white rounded-md px-4 py-2 hover:bg-green-500"
               onClick={() => DownloadFileID(inquiry_ID_val)}
             >
               {downloadArr ? (
@@ -3252,11 +3256,11 @@ const EnquiryForm = ({ isEdit }) => {
                   </thead>
                   <tbody>
                     {fields.map((field, index) => (
-                      <tr>
+                      <tr key={field.id}>
                         <td>{index + 1}</td>
                         <td>
                           <div className="d-flex align-items-center">
-                            <div key={field.id} className="w-100">
+                            <div className="w-100">
                               <TextField
                                 disabled={
                                   IsViewVal ||
@@ -3517,7 +3521,7 @@ const EnquiryForm = ({ isEdit }) => {
               (activeStep === 2 && activeStep !== 5 && (
                 <button
                   type="button m-2"
-                  className="btn btn-primary rounded-lg px-8 py-2 mx-6 bg-green-400 "
+                  className="m-1 bg-blue-700 text-white rounded-md px-8 py-2 hover:bg-green-500"
                   onClick={() => handleAppendAtSecondLast()}
                 >
                   Add Row
@@ -3525,7 +3529,7 @@ const EnquiryForm = ({ isEdit }) => {
               ))}
             <button
               type="submit"
-              className="btn btn-primary rounded-lg px-8 py-2 mx-6 bg-green-400 "
+              className="m-1 bg-blue-700 text-white rounded-md px-8 py-2 hover:bg-green-500"
               color="primary"
               variant="contained"
               disabled={loading}
@@ -3549,7 +3553,7 @@ const EnquiryForm = ({ isEdit }) => {
                 )
               ) : (
                 <>
-                  <div className="d-flex align-items-center text-xl">
+                  <div className="d-flex align-items-center text-base">
                     Next <FontAwesomeIcon icon={faArrowAltCircleRight} />
                   </div>
                 </>
@@ -3558,7 +3562,7 @@ const EnquiryForm = ({ isEdit }) => {
             {roleName === "admin" && activeStep === steps.length - 1 && (
               <button
                 type="button"
-                className="btn btn-primary me-2 "
+                 className="m-1 bg-blue-700 text-white rounded-md px-8 py-2 hover:bg-green-400"
                 variant="contained"
                 disabled={loading}
                 onClick={() => handleSubmit(onSubmit(getValues(), true))}

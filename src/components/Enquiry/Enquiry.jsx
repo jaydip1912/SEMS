@@ -10,6 +10,7 @@ import {
   fetchUserSuccess,
 } from "../../store/actions/userAction";
 import { deleteRec, fetchListing } from "../../common/common";
+import { CircularProgress } from "@mui/material";
 
 const Enquiry = () => {
   const currentPage = 1;
@@ -165,7 +166,9 @@ const Enquiry = () => {
           onDelete={openDeleteModal}
           CallPrint={(data) => DownloadFileId(data)}
           CallView={(data) => handleEdit(data, false, true)}
-          noDataMessage={loader ? <h1>no data</h1> : "NO data Found"}
+          noDataMessage={
+            loader ? <CircularProgress color="inherit" /> : "No data available."
+          }
           downloadArr={downloadArr}
         />
         <DynamicModal

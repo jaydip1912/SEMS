@@ -58,7 +58,7 @@ const CustomerList = () => {
     try {
       const response = await addRec("/edit-customer", { customer_id: userId });
       if (response?.type === "success") {
-        navigate(`/customers/editCustomer/${userId}`, {
+        navigate(`/customers/updateCustomer/${userId}`, {
           state: { userData: response?.data },
         });
       } else {

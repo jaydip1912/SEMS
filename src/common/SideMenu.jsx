@@ -44,8 +44,8 @@ const SideMenu = () => {
 
   return (
     <main>
-      <nav className="p-4 bg-gray-800">
-        <div className="max-w-7xl mx-auto flex justify-between items-center ">
+      <nav className="p-4 bg-gray-800 ">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:text-sm  text-lg   justify-between  items-center ">
           <div className="text-white sm:text-3xl text-2xl font-bold ">
             Sales Enquiry
           </div>
@@ -103,7 +103,7 @@ const SideMenu = () => {
                 {masterOpen && (
                   <div
                     ref={masterRef}
-                    className="absolute top-16 right-1/4 mt-2 w-40 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
+                    className="absolute top-16 right-1/4 mt-2 w-40 bg-white sm:mt-0 dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
                   >
                     <ul className="py-2">
                       <li>
@@ -129,12 +129,12 @@ const SideMenu = () => {
             )}
           </ul>
 
-          <div className="relative" ref={profileRef}>
+          <div className="relative  hidden  sm:inline" ref={profileRef}>
             <div
               className="flex items-center space-x-4 cursor-pointer"
               onClick={toggleProfile}
             >
-              <div className="w-12 h-12 rounded-full bg-gray-400 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-full bg-gray-400 flex items-center justify-center text-white ">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                   <img
                     src={"https://picsum.photos/200/300"}

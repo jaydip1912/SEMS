@@ -44,11 +44,11 @@ function App() {
             {/* Customer */}
             <Route path="/customers" element={<CustomerList />} />
             <Route
-              path="/customers/createCustomers"
+              path="/customers/createCustomer"
               element={<CustomerForm isEdit={false} />}
             />
             <Route
-              path="/customers/createCustomers"
+              path="/customers/updateCustomer/:userId"
               element={<CustomerForm isEdit={true} />}
             />
 
