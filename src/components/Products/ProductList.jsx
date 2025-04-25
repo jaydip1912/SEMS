@@ -17,7 +17,7 @@ const ProductList = () => {
   const dispatch = useDispatch();
 
   const { users } = useSelector((state) => state.user);
-  console.log(users);
+  // console.log(users);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -43,12 +43,14 @@ const ProductList = () => {
 
   const handleEdit = async (userId) => {
     try {
+      console.log(userId);
+
       const response = await addRec("/edit-product", {
         product_id: userId,
       });
       if (response?.type === "success") {
-        navigate(`/product/updateProduct/${userId}`, {
-          state: { userDta: response.data },
+        navigate(`/products/updateProduct/${userId}`, {
+          state: { userData: response.data },
         });
       } else {
         alert(error.message | "failed to fetch product");

@@ -24,10 +24,10 @@ const ProductForm = ({ isEdit }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const { users } = useSelector((state) => state.user);
+  // const { users } = useSelector((state) => state.user);
 
   const userData = location.state?.userData;
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(false);
 
   useEffect(() => {
     if (isEdit && userData) {
@@ -102,7 +102,7 @@ const ProductForm = ({ isEdit }) => {
         <div className=" justify-center items-center h-screen">
           <div className="bg-white flex justify-between items-center  p-4 rounded-lg shadow-md w-full ">
             <h2 className="text-2xl font-bold text-gray-900">
-              {isEdit ? "Update Customer" : "Create Customer"}
+              {isEdit ? "Update Product" : "Create Product"}
             </h2>
             <button
               type="button"
@@ -172,11 +172,13 @@ const ProductForm = ({ isEdit }) => {
                   />
                 </div>
                 {isEdit && (
-                  <div className="flex flex-col space-y-2">
-                    <div className="flex items-center">
+                  <div className="flex flex-col space-y-2 px-4 py-2">
+                    <div className="flex items-center ">
                       <span>{status ? "Active" : "inactive"}</span>
-                      <div className="">
+                      <div className="flex justify-center items-center ">
                         <input
+                          defaultChecked
+                          className=" p-2 checkbox checkbox-success"
                           type="checkbox"
                           checked={status}
                           onClick={() => setStatus((prev) => !prev)}

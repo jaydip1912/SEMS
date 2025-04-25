@@ -82,6 +82,7 @@ const EnquiryForm = ({ isEdit }) => {
       inquiryData: new Date().toISOString().split("T")[0],
       quotationDate: new Date().toISOString().split("T")[0],
 
+      inq_number: null,
       product_id: null,
       customer_id: null,
       customerFirstName: null,
@@ -218,6 +219,8 @@ const EnquiryForm = ({ isEdit }) => {
   useEffect(() => {
     console.log(isEdit, inquiryData.inquiry_details);
     if (isEdit && inquiryData) {
+      setValue("inq_number", inquiryData?.inq_number);
+
       setValue("inquiry_status", inquiryData?.inquiry_status);
       setValue("inquiry_ID", inquiryData?.id);
       // setValue("inquiryNo", inquiryData?.inquiryNo);
@@ -3562,7 +3565,7 @@ const EnquiryForm = ({ isEdit }) => {
             {roleName === "admin" && activeStep === steps.length - 1 && (
               <button
                 type="button"
-                 className="m-1 bg-blue-700 text-white rounded-md px-8 py-2 hover:bg-green-400"
+                className="m-1 bg-blue-700 text-white rounded-md px-8 py-2 hover:bg-green-400"
                 variant="contained"
                 disabled={loading}
                 onClick={() => handleSubmit(onSubmit(getValues(), true))}

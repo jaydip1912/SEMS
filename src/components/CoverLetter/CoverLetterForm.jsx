@@ -110,13 +110,13 @@ const CoverLetterForm = ({ isEdit }) => {
               <div className="flex flex-col md:flex-row sm:flex-row  justify-between items-center mb-4">
                 <div className="flex flex-col space-y-2">
                   <label className="font-medium text-gray-700">Letter</label>
-                  <textarea
-                    id="letter"
-                    {...register("letter", { required: true })}
-                    className={`border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      errors.letter ? "border-red-500" : "border-gray-300"
-                    }`}
-                  />
+                  <div>
+                    <textarea
+                      className="resize-v  w-full rounded-md p-4"
+                      id="letter"
+                      {...register("letter", { required: true })}
+                    />
+                  </div>
                 </div>
 
                 {isEdit && (

@@ -122,6 +122,11 @@ const Enquiry = () => {
   const currentUsers = users?.slice(indexOfFirstUser, indexOfLastUser);
   const columns = [
     {
+      name: "Enquiry Number",
+      selector: (row) => row?.inq_number,
+      sortable: true,
+    },
+    {
       name: "Product",
       selector: (row) => row?.productDetails?.product_name,
       sortable: false,

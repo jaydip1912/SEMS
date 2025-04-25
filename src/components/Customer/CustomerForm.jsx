@@ -169,8 +169,9 @@ ring-blue-500 ${errors.email ? "border-red-500" : "border-gray-300"}`}
                   <textarea
                     id="address"
                     {...register("address", { required: true })}
-                    className={`border rounded-md p-2 focus:outline-none focus:ring-2 focus:
-ring-blue-500 ${errors.address ? "border-red-500" : "border-gray-300"}`}
+                    className={`border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      errors.address ? "border-red-500" : "border-gray-300"
+                    }`}
                   />
                 </div>
                 {isEdit && (
