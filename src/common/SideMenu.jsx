@@ -132,7 +132,7 @@ const SideMenu = () => {
             )}
           </ul>
 
-          <div className="relative  hidden  sm:inline" ref={profileRef}>
+          <div className="relative    sm:inline" ref={profileRef}>
             <div
               className="flex items-center space-x-4 cursor-pointer"
               onClick={toggleProfile}
